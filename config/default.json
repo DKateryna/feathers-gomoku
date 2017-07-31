@@ -5,5 +5,30 @@
   "paginate": {
     "default": 10,
     "max": 50
-  }
+  },
+  "authentication": {
+    "secret": "e9b87a7f3de9cc7ff1ce5611d9babc1378acea09303c7f7b97b9686738e871146e89508c778e58a65512cf861a196ae514d060b36bf3b7d85cf434c398bba5e4827358d47bfb93ef84492c54fa1416019607bcec63c227203d5edd1e7f804c6bd099e8609dcde9b393ff9e5436d4c2f1880c16211fc2d3d12099169c1d9ca8dfa177c5c57ef2c082f0733d4eb1bbcde1457c573fb235b0d128ed0d7ab42009206be9407bc204b7b2e3cb53845e092ad2236262170c59505e0b49596303f9446ad2adf860dc8852f16b5c6595f8c21b485e046ca04e6a7ead375b6a6f58704f013bc999ac14dacd21986d3affb6fb02acbd2cf539beb9439a24706f4759157825",
+    "strategies": [
+      "jwt",
+      "local"
+    ],
+    "path": "/authentication",
+    "service": "users",
+    "jwt": {
+      "header": {
+        "type": "access"
+      },
+      "audience": "https://yourdomain.com",
+      "subject": "anonymous",
+      "issuer": "feathers",
+      "algorithm": "HS256",
+      "expiresIn": "1d"
+    },
+    "local": {
+      "entity": "user",
+      "usernameField": "email",
+      "passwordField": "password"
+    }
+  },
+  "mongodb": "mongodb://localhost:27017/feathers_gomoku"
 }
